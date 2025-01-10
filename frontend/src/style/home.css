@@ -1,0 +1,69 @@
+.container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.container form{
+    width: 540px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+}
+.container form .input-box{
+    display: flex;
+    flex-direction:column ;
+    gap: 3px;
+}
+.container form .input-box input{
+    width: 200px;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+.container form button{
+    width: 100px;
+    height: 30.5px;
+    background-color: #7728f6;
+    color: white;
+    border: none;
+    position: absolute;
+    top: 21px;
+    right: 0;
+}
+.table-container{
+    width: 100vw;
+    display: flex;
+}
+.table{
+    width: 950px;
+    margin: auto;
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+}
+.table-heading{
+    background-color: #7728f6;
+    color: white;
+    height: 40px;
+}
+
+.table-heading,.table-data{
+    display: grid;
+    grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px;
+    justify-content: center;
+    align-items: center;
+}
+.table-data{
+    background-color: white;
+}
+.table-data div{
+    display: grid;
+    height: 40px;
+}
+.table-heading h3, .table-data p{
+    justify-self: center;
+    align-self: center;
+}

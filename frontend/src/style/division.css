@@ -1,0 +1,21 @@
+.division-box{
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 20px;
+}
+.division-box button,.currentDiv button{
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: #7728f5;
+    color: #FFFF;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.currentDiv{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

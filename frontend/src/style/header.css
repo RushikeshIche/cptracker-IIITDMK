@@ -1,0 +1,22 @@
+.header-container{
+    width: 100vw;
+    background-color: #7728f6;
+    margin-bottom: 50px;
+}
+
+.header-container .header-box{
+    padding: 20px;
+}
+.header-container .header-box ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+}
+.header-container .header-box ul li{
+    font-size: 20px;
+    color: #c4fcf0;
+}
+.navlinks{
+    text-decoration: none;
+}
