@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "../style/division.css";
 import { useState, useEffect } from "react";
-import { getContestData } from "../../API/getContestData";
+import { getIndUserData } from "../../API/getContestData";
 import { useQuery } from "@tanstack/react-query";
 import { Loading } from "./loading";
 import { ErrorPage } from "./error";
@@ -17,40 +17,11 @@ export const Division = () => {
         "C": 3,
         "D": 4
     }
-    const extractData = (dataArray) => {
-        const Rank = dataArray[0]?.split("\n\n")[1]?.trim();
-        const OtherData = dataArray[1]?.split("\n");
-        const Star = OtherData[1]?.trim()?.slice(0, 2);
-        const Username = OtherData[1]?.trim()?.slice(2);
-        const Institute = OtherData[3]?.trim();
-        const Score = dataArray[2]?.split("\n")[1]?.trim();
-        const LastAc = dataArray[3]?.split("\n\n")[1]?.trim();
-        const p1 = dataArray[4]?.split("\n")[1]?.trim();
-        const p2 = dataArray[5]?.split("\n")[1]?.trim();
-        const p3 = dataArray[6]?.split("\n")[1]?.trim();
-        const p4 = dataArray[7]?.split("\n")[1]?.trim();
-        return {
-            Rank,
-            Username,
-            Star,
-            Institute,
-            Score,
-            LastAc,
-            p1,
-            p2,
-            p3,
-            p4,
-        };
-    };
-
-    const MapData = (DataArray) => {
-        return DataArray.map((currElement) => extractData(currElement));
-    };
-
     const getData = async () => {
         try {
             console.log(name, div);
-            const res = await getContestData(name, div);
+            const res = await getIndUserData(name, div);
+            console.log(res);
             return res.data.contestData;
         } catch (error) {
             console.log(error);
@@ -69,10 +40,10 @@ export const Division = () => {
     };
 
     if (isLoading) return <Loading />;
-    if (data && data[0][0] === "Sorry, there is no data to display") navigate('/nodataavailable')
+    if (!data) navigate('/nodataavailable')
     if (isError) return <ErrorPage />;
-    const contestData = data && MapData(data);
-
+    // const contestData = data && MapData(data);
+    const contestData = data;
     return (
         <>
             <div className="division-container">
@@ -86,7 +57,7 @@ export const Division = () => {
             <div className="currentDiv">
                 <button>DIV {object[div]}</button>
             </div>
-            {contestData && <Table contestData={contestData} />}
+            {data && <Table contestData={contestData} />}
         </>
     );
 };

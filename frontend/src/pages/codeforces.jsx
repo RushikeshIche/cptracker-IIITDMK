@@ -2,12 +2,13 @@ import { useState } from "react"
 import { getCodeforcesData } from "../../API/getContestData"
 import { useQuery } from "@tanstack/react-query"
 import { Loading } from "./loading"
+import '../style/codeforces.css'
+import { ErrorPage } from "./error";
 
 export const CodeForces = () => {
     const getData = async () => {
         try {
             const res = await getCodeforcesData()
-            console.log(res.data)
             return res.data
         } catch (error) {
             console.log(error)
@@ -20,18 +21,30 @@ export const CodeForces = () => {
     })
 
     if (isLoading) return <Loading/>
+    if (isError) return <ErrorPage/>
     data && console.log(data)
     return (
         <>
             <div className="codeforces-container">
                 <div className="codeforces-box">
+                    <h1 className="codeforces"><b>Codeforces</b> Contest <b>{data && data.data[0].contestName}</b> Data</h1>
                     <div className="table">
                         <ul className="heading">
                             <li>Username</li>
-                            <li>Rating</li>
-                            <li>Ranking</li>
-                            <li></li>
+                            <li>OldRating</li>
+                            <li>NewRating</li>
+                            <li>Rank</li>
                         </ul>
+                        {
+                            data && data.data.map((currUser,index) => {
+                                return <ul key={index} className="tablecontent">
+                                    <li>{currUser.handle}</li>
+                                    <li>{currUser.oldRating}</li>
+                                    <li>{currUser.newRating}</li>
+                                    <li>{currUser.rank}</li>
+                                </ul>
+                            })
+                        }
                     </div>
                 </div>
             </div>

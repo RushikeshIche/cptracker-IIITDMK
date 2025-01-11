@@ -3,7 +3,12 @@
     display: flex;
     justify-content: center;
 }
-
+.Homeheading{
+    text-align: center;
+}
+.Homeheading b{
+    color: #7728f6;
+}
 .container form{
     width: 540px;
     display: flex;

@@ -1,0 +1,25 @@
+.table .heading{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    background-color: #7728f6;
+}
+.table .heading li{
+    padding: 10px;
+    color: white;
+}
+.tablecontent{
+    display: grid;
+    grid-template-columns: 120px 120px 120px 120px;
+    list-style: none;
+    background-color: white;
+}
+.tablecontent li{
+    padding: 10px;
+}
+.codeforces{
+    text-align: center;
+}
+.codeforces b{
+    color: #7728f6;
+}
