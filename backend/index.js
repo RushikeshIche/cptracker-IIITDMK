@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 app.use(cors());
 const connectMongo = async () => {
     try {
-        await mongoose.connect("mongodb://localhost:27017/CodeChef", {
+        await mongoose.connect("mongodb://localhost:27017/ContestData", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
@@ -18,11 +18,11 @@ const connectMongo = async () => {
 }
 const codeChefScraping = require('./routes/codechef.js')
 const codeforces = require('./routes/codeforces.js')
-const saveData = require('./routes/SaveCodechefdata.js')
+const user = require('./routes/username.js')
 
-app.use('/scrape', codeChefScraping)
-app.use('/codeforces',codeforces)
-app.use('/addcodechef',saveData)
+app.use('/codechef', codeChefScraping);
+app.use('/codeforces',codeforces);
+app.use('/user', user);
 
 app.listen(port, () => {
     connectMongo();

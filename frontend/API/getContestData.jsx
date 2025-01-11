@@ -5,16 +5,12 @@ const api = axios.create({
 })
 
 export const getContestData = () => {
-    return api.get(`/scrape`)
+    return api.get(`/codechef/show`)
 }
 
 export const getIndUserData = (name,star) => {
-    return api.get(`/scrape/individual?contestName=${name}&category=${star}`)
+    return api.get(`/codechef/individual?contestName=${name}&category=${star}`)
 }
-
-const codeforces = axios.create({
-    baseURL: "https://codeforces.com"
-})
 
 export const getCodeforcesData = () => {
     return api.get('/codeforces/show')

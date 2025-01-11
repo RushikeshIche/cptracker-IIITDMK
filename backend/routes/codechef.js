@@ -3,6 +3,15 @@ const puppeteer = require('puppeteer');
 const router = express.Router();
 const codechefdata = require("../models/codechefdata")
 
+const AddData = async (userdata) => {
+    try {
+        await codechefdata.insertMany(userdata)
+        console.log("Data successfully uploaded")
+    } catch (error) {
+        console.log("unable to save the data: ", error.message)
+    }
+}
+
 const extractData = (dataArray) => {
     const Rank = dataArray[0]?.split('\n\n')[1]?.trim();
     const OtherData = dataArray[1]?.split('\n');
@@ -35,8 +44,7 @@ const ContestRankingData = DataArray.map(currElement => {
 return ContestRankingData
 }
 
-router.get("/individual", async (req,res) => {
-    const {contestName, category} = req.query;
+const scrapData = async (contestName,category,isAdd) => {
     try {
         const browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
@@ -54,17 +62,33 @@ router.get("/individual", async (req,res) => {
             });
         });
         await browser.close();
-        contestData = data && data.length>0 && data[0][0]!="Sorry, there is no data to display" && MapData(data)
-        res.status(200).json({
-            contestData
-        })
+        contestData = data && data.length>0 && MapData(data)
+        if (isAdd) AddData(contestData);
+        if (!isAdd) return contestData;
     } catch (error) {
         console.error("Error occurred while scraping:", error);
-        res.status(500).send({ error: "Failed to fetch data" });
     }
+}
+router.post("/add", async (req, res) => {
+    const {contestName} = req.query;
+    await codechefdata.deleteMany({});
+    await scrapData(contestName,"A",true);
+    await scrapData(contestName,"B",true);
+    await scrapData(contestName,"C",true);
+    await scrapData(contestName,"D",true);
+    res.status(200).json({
+        message: "data succefully saved in database",
+    })
+});
+router.get("/individual", async (req,res) => {
+    const {contestName, category} = req.query;
+    const contestData = await scrapData(contestName,category,false)
+    res.status(200).json({
+        contestData
+    })
 })
 
-router.get("/", async (req, res) => {
+router.get("/show", async (req, res) => {
     try {
         const contestData = await codechefdata.find();
         res.status(200).json({

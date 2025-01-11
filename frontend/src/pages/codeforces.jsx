@@ -23,6 +23,7 @@ export const CodeForces = () => {
     if (isLoading) return <Loading/>
     if (isError) return <ErrorPage/>
     data && console.log(data)
+    data.data && data.data.sort((a, b) => parseInt(a.rank) - parseInt(b.rank));
     return (
         <>
             <div className="codeforces-container">

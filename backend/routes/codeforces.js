@@ -1,11 +1,13 @@
 const { default: axios } = require('axios');
 const express = require('express')
 const CodeforcesData = require("../models/codeforcesdata");
+const CFuserdata = require("../models/codeForcesUser")
 
 const router = express.Router();
-const usernames = [
-    "Rohan1857","byteninja_05","Rohan1857","byteninja_05","tourist","rineetpandey","Rohan1875","123cs0003","123cs0009","Aniket_Gupta_","hydro_7"
-]
+const getUsername = async () => {
+    const username = await CFuserdata.find();
+    return username;
+}
 
 const AddData = async (userdata) => {
     try {
@@ -28,6 +30,10 @@ const getData = async (username) => {
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const fecthAllData = async (packetSize=5, delayMs=2000) => {
+    const user = await getUsername()
+    const usernames = user.map((currUser) => {
+        return currUser.username
+    })
     const allData = [];
     for (let i=0;i<usernames.length;i+=packetSize){
         const packet = usernames.slice(i,i+packetSize)
