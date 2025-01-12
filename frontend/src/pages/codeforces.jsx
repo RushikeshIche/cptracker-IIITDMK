@@ -29,7 +29,7 @@ export const CodeForces = () => {
             <div className="codeforces-container">
                 <div className="codeforces-box">
                     <h1 className="codeforces"><b>Codeforces</b> Contest <b>{data && data.data[0].contestName}</b> Data</h1>
-                    <div className="table">
+                    <div className="codeforces-table">
                         <ul className="heading">
                             <li>Username</li>
                             <li>OldRating</li>

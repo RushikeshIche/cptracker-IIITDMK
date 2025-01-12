@@ -1,7 +1,7 @@
 export const LeetCode = () => {
     return (
         <>
-            <h1>LeetCode</h1>
+            <h1 style={{color: "White"}}>LeetCode</h1>
         </>
     )
 }

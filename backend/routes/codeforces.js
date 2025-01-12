@@ -1,11 +1,11 @@
 const { default: axios } = require('axios');
 const express = require('express')
 const CodeforcesData = require("../models/codeforcesdata");
-const CFuserdata = require("../models/codeForcesUser")
+const CFusername = require("../models/codeForcesUser")
 
 const router = express.Router();
 const getUsername = async () => {
-    const username = await CFuserdata.find();
+    const username = await CFusername.find();
     return username;
 }
 
@@ -60,7 +60,8 @@ router.post('/add', async (req,res) => {
     try {
         const data = await fecthAllData();
         await CodeforcesData.deleteMany({});
-        AddData(data)
+        console.log(data);
+        await AddData(data)
         res.json({message: "data succefully added to data"})
     } catch (error) {
         console.error("Error fetching Codeforces data:", error.message);

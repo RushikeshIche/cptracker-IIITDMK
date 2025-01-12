@@ -3,14 +3,12 @@ const port = 3005;
 const cors = require('cors')
 const app = express();
 const mongoose = require("mongoose")
+require('dotenv').config();
 
 app.use(cors());
 const connectMongo = async () => {
     try {
-        await mongoose.connect("mongodb://localhost:27017/ContestData", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        })
+        await mongoose.connect(process.env.MONGO_URI)
         console.log("MongoDb Connected Successfully")
     } catch (error) {
         console.log(error);
