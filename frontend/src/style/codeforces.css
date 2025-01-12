@@ -1,0 +1,36 @@
+.codeforces-table{
+    margin: auto;
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+}
+
+.codeforces-table .heading{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    background-color: #7728f6;
+}
+.codeforces-table .heading li{
+    padding: 10px;
+    color: white;
+}
+.tablecontent{
+    display: grid;
+    grid-template-columns: 120px 120px 120px 120px;
+    list-style: none;
+    background-color: #272139;
+    align-items: center;
+    color: white;
+    height: 60px;
+}
+.tablecontent li{
+    padding: 10px;
+}
+.codeforces{
+    text-align: center;
+}
+.codeforces b{
+    color: #7728f6;
+}

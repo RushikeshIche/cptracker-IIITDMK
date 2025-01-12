@@ -18,11 +18,13 @@ export const Table = ({contestData}) => {
                         }
                         <div className="table-data">
                             {
-                                contestData?.map((currUser) => (
-                                    HeadingArray.map((currHeading,index) => {
-                                        return <div key={index}><p>{currUser[currHeading]}</p></div>
-                                    })
-                                ))
+                                contestData?.map((currUser,idx) => {
+                                    return <div key={idx} className="list-items">
+                                        {HeadingArray.map((currHeading,index) => {
+                                            return <div key={index}><p>{currUser[currHeading]}</p></div>
+                                        })}
+                                    </div>
+                            })
                             }
                         </div>
                 </div>

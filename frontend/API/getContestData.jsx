@@ -4,15 +4,14 @@ const api = axios.create({
     baseURL: "http://localhost:3005"
 })
 
-export const getContestData = (name,star) => {
-    console.log(name,star)
-    return api.get(`/scrape?contestName=${name}&category=${star}`)
+export const getContestData = () => {
+    return api.get(`/codechef/show`)
 }
 
-const codeforces = axios.create({
-    baseURL: "https://codeforces.com"
-})
+export const getIndUserData = (name,star) => {
+    return api.get(`/codechef/individual?contestName=${name}&category=${star}`)
+}
 
-export const getCodeforcesData = (username) => {
-    return api.get('/codeforces')
+export const getCodeforcesData = () => {
+    return api.get('/codeforces/show')
 }

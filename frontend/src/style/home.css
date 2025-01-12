@@ -3,7 +3,13 @@
     display: flex;
     justify-content: center;
 }
-
+.Homeheading{
+    text-align: center;
+    color: white;
+}
+.Homeheading b{
+    color: #7728f6;
+}
 .container form{
     width: 540px;
     display: flex;
@@ -43,25 +49,30 @@
     margin-top: 50px;
     display: grid;
     justify-content: center;
+    gap: 20px;
 }
 .table-heading{
     background-color: #7728f6;
     color: white;
+    display: grid;
+    grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px;
     height: 40px;
 }
 
-.table-heading,.table-data{
-    display: grid;
-    grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px;
+.table-data{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
     align-items: center;
+    color: white;
 }
-.table-data{
-    background-color: white;
-}
-.table-data div{
+.table-data .list-items{
+    background-color: #272139;
     display: grid;
-    height: 40px;
+    grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px;
+    height: 60px;
+    align-items: center;
 }
 .table-heading h3, .table-data p{
     justify-self: center;
