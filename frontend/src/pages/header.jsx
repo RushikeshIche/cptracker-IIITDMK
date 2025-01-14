@@ -3,16 +3,12 @@ import '../style/header.css'
 export const Header = () => {
     return (
         <>
-            <div className="header-container">
-                <div className="header-box">
-                    <ul>
-                        <NavLink className="navlinks" to="/"><li>Home</li></NavLink>
-                        <NavLink className="navlinks" to="/codechef"><li>CodeChef</li></NavLink>
-                        <NavLink className="navlinks" to="/codeforces"><li>CodeForces</li></NavLink>
-                        <NavLink className="navlinks" to="/leetcode"><li>LeetCode</li></NavLink>
-                    </ul>
-                </div>
-            </div>
+           <div className="w-full self-start title flex items-center p-3">
+      <img src="css/src/png college logo.png" alt="college logo" className="ml-3 college_logo" />
+      <div className="college_name font-bold mx-auto" style={{ color: "#31398A" }}>
+        Indian Institute of Information Technology Design & Manufacturing, Kurnool
+      </div>
+    </div>
         </>
     )
 }
