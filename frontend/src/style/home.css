@@ -20,20 +20,17 @@
 .table-heading{
     background-color: #7728f6;
     color: white;
-    display: grid;
-    grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px;
     height: 40px;
 }
 
 .table-heading,.table-data{
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     color: white;
 }
 .table-data .list-items{
     background-color: #272139;
-    display: grid;
-    grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px;
+
     height: 60px;
     align-items: center;
 }
