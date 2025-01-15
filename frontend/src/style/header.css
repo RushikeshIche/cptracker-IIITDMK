@@ -1,22 +1,144 @@
-.header-container{
-    width: 100vw;
-    background-color: #7728f6;
-    margin-bottom: 50px;
-}
-
-.header-container .header-box{
-    padding: 20px;
-}
-.header-container .header-box ul{
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-    gap: 40px;
-}
-.header-container .header-box ul li{
-    font-size: 20px;
-    color: #c4fcf0;
-}
-.navlinks{
+*{
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  a{
     text-decoration: none;
-}
+  }
+  .page{
+    background-image: url('src/college.jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    flex-direction: row;
+  }
+  .title{
+    background-color: #D3D3D3;
+  }
+  .black_region{
+    height: 88vh;
+    width: 60vw;
+    background-color:#D8E2DC;
+  }
+  .college_logo{
+    height: 90px;
+    width: 90px;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+  .college_name {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+  }
+  .blue_region{
+    
+    width:40vw;
+    background-color:rgba(0, 0, 0, 0.52);
+  }
+  .login_box{ 
+    width: 483px;
+    height: 642px;
+    background-color: rgba(256, 256, 256, 0.71); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding:27px;
+    border-radius: 30px;
+    justify-content: space-evenly;
+  }
+  .header{
+    color: #555555;
+    font-size: 17px;
+  }
+  
+  .login{
+    color: #555555;
+  }
+  
+  .input_field{
+    border-radius: 8px;
+  }
+  
+  .login_text{
+    font-family:'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 66px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #473939;
+    text-shadow: 1px 1px 10px black;
+  }
+  .submit_button{
+    background-color: #ED4700;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .login_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .typing-animation {
+    overflow: hidden; 
+    white-space: nowrap;
+    border-right: .15em solid orange; 
+    font-family: monospace; 
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 20px;
+    color: black;
+  }
+  
+  
+  .forgot_password{
+    color:  #1C7293;
+  }
+
+  @media (max-width: 1500px){
+    .typing-animation{
+        font-size: 36px;
+    }
+  }
+  @media (max-width: 1300px){
+    .black_region{
+        width: 50vw;;
+    }
+    .blue_region{
+        width: 50vw;
+    }
+    .typing-animation{
+        font-size: 26px;
+    }
+  }
+
+  
+  @media(max-width : 1050px){
+    .black_region{
+        display: none;
+    }
+    .blue_region{
+        width: 100vw;
+    }
+    .college_name {
+        font-size: 32px;
+        margin-top: 10px;
+    }
+  }
+  
+  @media(max-width : 500px){
+    .login_box{ 
+        width: 90%;
+  
+    }
+    .college_name {
+        font-size: 20px; 
+    }
+  }

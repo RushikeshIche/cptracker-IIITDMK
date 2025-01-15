@@ -1,55 +1,21 @@
-.container{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+.containers{
+    margin-top: 100px;
+    width: 90vw;
 }
-.Homeheading{
-    text-align: center;
-    color: white;
-}
-.Homeheading b{
-    color: #7728f6;
-}
-.container form{
-    width: 540px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    position: relative;
-}
-.container form .input-box{
-    display: flex;
-    flex-direction:column ;
-    gap: 3px;
-}
-.container form .input-box input{
-    width: 200px;
-    height: 30px;
-    border: none;
-    outline: none;
-    padding: 5px;
-}
-.container form button{
-    width: 100px;
-    height: 30.5px;
-    background-color: #7728f6;
-    color: white;
-    border: none;
-    position: absolute;
-    top: 21px;
-    right: 0;
+.ContestForm{
+    padding: 10px;
+    /* height :80px; */
+    border-radius: 10px;
 }
 .table-container{
     width: 100vw;
     display: flex;
 }
 .table{
-    width: 950px;
+    width: 90%;
     margin: auto;
     margin-top: 50px;
     display: grid;
-    justify-content: center;
-    gap: 20px;
 }
 .table-heading{
     background-color: #7728f6;
@@ -59,10 +25,7 @@
     height: 40px;
 }
 
-.table-data{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.table-heading,.table-data{
     justify-content: center;
     align-items: center;
     color: white;
@@ -77,4 +40,12 @@
 .table-heading h3, .table-data p{
     justify-self: center;
     align-self: center;
+}
+@media (max-width: 1288px){
+    .ContestForm{
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
 }
