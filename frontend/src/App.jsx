@@ -6,6 +6,7 @@ import { CodeForces } from "./pages/codeforces"
 import { CodeChef } from "./pages/codechef"
 import { LeetCode } from "./pages/leetcode"
 import './App.css'
+import './index.css'
 import { ErrorPage } from "./pages/error"
 import { NotFound } from "./pages/NotFound"
 

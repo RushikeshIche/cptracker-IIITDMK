@@ -60,9 +60,6 @@
   .input_field{
     border-radius: 8px;
   }
-  .container_form{
-    margin-top: 10px;
-  }
   
   .login_text{
     font-family:'Times New Roman', Times, serif;
@@ -100,22 +97,11 @@
     color: black;
   }
   
-  .container {
-    text-align: left;
-    position: absolute;
-    font-size: 45px; 
-    left: 0;
-    top: 300px; 
-    color: #473939;
-  }
   
   .forgot_password{
     color:  #1C7293;
   }
-  
-  .container_small{
-    display: none;
-  }
+
   @media (max-width: 1500px){
     .typing-animation{
         font-size: 36px;
@@ -132,16 +118,7 @@
         font-size: 26px;
     }
   }
-  
-  @media(max-width : 1150px){
-    .container{
-        display: none;
-    }
-    .container_small{
-        display: inline-block;
-    }
-  
-  }
+
   
   @media(max-width : 1050px){
     .black_region{
