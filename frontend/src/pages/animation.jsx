@@ -33,7 +33,7 @@ export const Animation = () => {
     
     setTimeout(() => {
       splashScreen.style.top = "-110vh";
-    }, 2300);
+    }, 1800);
   }, []);
 
   return (

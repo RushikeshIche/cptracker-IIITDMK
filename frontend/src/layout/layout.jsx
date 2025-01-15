@@ -11,7 +11,7 @@ export const Layout = () => {
     useEffect(() => {
       const timer = setTimeout(() => {
         setShowAnimation(false);
-      }, 2300);
+      }, 1800);
   
       return () => clearTimeout(timer); 
     }, []);
