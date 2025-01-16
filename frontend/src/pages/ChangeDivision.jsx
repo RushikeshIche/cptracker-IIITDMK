@@ -10,7 +10,7 @@ import { Table } from "./tabel";
 export const Division = () => {
     const navigate = useNavigate();
     const [div, setDiv] = useState("D");
-    const [name, setName] = useState("START167");
+    const [name, setName] = useState("START169");
     const object = {
         "A": 1,
         "B": 2,

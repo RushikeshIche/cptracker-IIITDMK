@@ -1,0 +1,24 @@
+
+  .anchor{
+    text-decoration: none;
+    width: 180px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;   
+  }
+  .anchor:hover{
+    background-color: #ED4700;
+    color: white;
+    text-decoration:none;
+  }
+
+  
+
+@media (max-width: 970px){
+.anchor{
+    font-size: small;
+    width: 90px;
+}
+}

@@ -7,6 +7,7 @@ const CodeforcesSchema = new mongoose.Schema({
     newRating: {type: String, required: true},
     oldRating: {type: String, required: true},
     rank: {type: String, required: true},
+    check: {type: Boolean}
 })
 
 module.exports = mongoose.model("CodeforcesData", CodeforcesSchema)

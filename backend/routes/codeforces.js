@@ -9,6 +9,8 @@ const getUsername = async () => {
     return username;
 }
 
+const Current_Contest = "Codeforces Round 996 (Div. 2)";
+
 const AddData = async (userdata) => {
     try {
         await CodeforcesData.insertMany(userdata)
@@ -59,9 +61,13 @@ const fecthAllData = async (packetSize=5, delayMs=2000) => {
 router.post('/add', async (req,res) => {
     try {
         const data = await fecthAllData();
+        const updatedData = data.map((currData,index) => {
+            if (currData.contestName===Current_Contest) currData.check=true
+            else currData.check=false
+            return currData
+        })
         await CodeforcesData.deleteMany({});
-        console.log(data);
-        await AddData(data)
+        await AddData(updatedData)
         res.json({message: "data succefully added to data"})
     } catch (error) {
         console.error("Error fetching Codeforces data:", error.message);

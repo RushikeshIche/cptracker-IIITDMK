@@ -62,7 +62,6 @@ const scrapData = async (contestName,category,isAdd) => {
             });
         });
         await browser.close();
-        console.log(data);
         contestData = data && data.length>0 && MapData(data)
         if (isAdd) AddData(contestData);
         if (!isAdd) return contestData;
