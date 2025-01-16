@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { getCodeforcesData } from "../../API/getContestData"
 import { useQuery } from "@tanstack/react-query"
 import { Loading } from "./loading"
@@ -28,7 +27,7 @@ export const CodeForces = () => {
         <>
             <div className="codeforces-container">
                 <div className="codeforces-box">
-                    <h1 className="codeforces"><b>Codeforces</b> Contest <b>{data && data.data[0].contestName}</b> Data</h1>
+                    <h1 className="codeforces text-3xl mt-6"><b>Codeforces</b> Contest <b>{data && data.data[0].contestName}</b> Data</h1>
                     <div className="codeforces-table">
                         <ul className="heading">
                             <li>Username</li>
@@ -38,11 +37,14 @@ export const CodeForces = () => {
                         </ul>
                         {
                             data && data.data.map((currUser,index) => {
-                                return <ul key={index} className="tablecontent">
+                                return currUser.check ? <ul key={index} className="tablecontent">
                                     <li>{currUser.handle}</li>
                                     <li>{currUser.oldRating}</li>
                                     <li>{currUser.newRating}</li>
                                     <li>{currUser.rank}</li>
+                                </ul> : <ul key={index} className="tablecontent">
+                                    <li>{currUser.handle}</li>
+                                    <li style={{gridColumn: "2/5", justifySelf: "center", color: "red"}}>Not Attemped</li>
                                 </ul>
                             })
                         }

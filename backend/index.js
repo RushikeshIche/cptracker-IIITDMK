@@ -17,14 +17,14 @@ const connectMongo = async () => {
 const codeChefScraping = require('./routes/codechef.js')
 const codeforces = require('./routes/codeforces.js')
 const user = require('./routes/username.js')
+const leetcode = require('./routes/leetcode.js')
 
 app.use('/codechef', codeChefScraping);
 app.use('/codeforces',codeforces);
 app.use('/user', user);
+app.use('/leetcode', leetcode);
 
 app.listen(port, () => {
     connectMongo();
     console.log(`Server running on http://localhost:${port}`);
 });
-
-// https://lccn.lbao.site/api/v1/contest-records/user?contest_name=weekly-contest-431&username=AspiringKarmokar&archived=false

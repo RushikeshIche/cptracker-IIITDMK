@@ -15,3 +15,7 @@ export const getIndUserData = (name,star) => {
 export const getCodeforcesData = () => {
     return api.get('/codeforces/show')
 }
+
+export const getLeetcodeData = () => {
+    return api.get(`/leetcode/show`)
+}

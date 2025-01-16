@@ -36,6 +36,9 @@
     width:40vw;
     background-color:rgba(0, 0, 0, 0.52);
   }
+  .container1 .active{
+    background-color: rgb(134 239 172 / var(--tw-bg-opacity, 1));
+  }
   .login_box{ 
     width: 483px;
     height: 642px;
