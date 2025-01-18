@@ -11,7 +11,7 @@ export const Table = ({contestData}) => {
                         <div className="table-heading">
                             {
                                 HeadingArray.map((currHeading,index) => {
-                                    return <h3 key={index}>{currHeading}</h3>
+                                    return <h3 className={currHeading} key={index}>{currHeading}</h3>
                                 })
                             }
                         </div>

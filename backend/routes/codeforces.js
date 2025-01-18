@@ -2,6 +2,7 @@ const { default: axios } = require('axios');
 const express = require('express')
 const CodeforcesData = require("../models/codeforcesdata");
 const CFusername = require("../models/codeForcesUser")
+const ContestSchema = require("../models/currentContest")
 
 const router = express.Router();
 const getUsername = async () => {
@@ -9,7 +10,10 @@ const getUsername = async () => {
     return username;
 }
 
-const Current_Contest = "Codeforces Round 996 (Div. 2)";
+const getContestName = async () => {
+    const data = await ContestSchema.find();
+    return data[0].codeforces
+}
 
 const AddData = async (userdata) => {
     try {
@@ -59,6 +63,8 @@ const fecthAllData = async (packetSize=5, delayMs=2000) => {
 }
 
 router.post('/add', async (req,res) => {
+    const Current_Contest = await getContestName();
+    // console.log(Current_Contest);
     try {
         const data = await fecthAllData();
         const updatedData = data.map((currData,index) => {

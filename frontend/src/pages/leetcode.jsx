@@ -1,4 +1,4 @@
-import { getLeetcodeData } from "../../API/getContestData"
+import { getCotestnames, getLeetcodeData } from "../../API/getContestData"
 import { useQuery } from "@tanstack/react-query"
 import { Loading } from "./loading"
 import '../style/codeforces.css'
@@ -14,24 +14,35 @@ export const LeetCode = () => {
         }
     }
 
+    const contestName = async () => {
+        try {
+            const data = await getCotestnames()
+            return data.data
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    const {data: Name, isLoading: nameLoading, isError: nameError} = useQuery({
+        queryKey: ["leetcodeName"],
+        queryFn: contestName
+    })
     const {data, isLoading, isError} = useQuery({
         queryKey: ["codeforces"],
         queryFn: getData,
     })
 
-    if (isLoading) return <Loading/>
-    if (isError) return <ErrorPage/>
-    data && console.log(data)
+    if (isLoading || nameLoading) return <Loading/>
+    if (isError || nameError) return <ErrorPage/>
     data.data && data.data.sort((a, b) => parseInt(a.rank) - parseInt(b.rank));
     return (
         <>
             <div className="codeforces-container">
                 <div className="codeforces-box">
-                    <h1 className="codeforces text-3xl mt-6"><b>Leetcode</b> Contest <b>{data && data.data[0].contest_name}</b> Data</h1>
+                    <h1 className="codeforces text-3xl mt-6"><b>Leetcode</b> Contest <b>{Name.data && Name.data[0].leetcode}</b> Data</h1>
                     <div className="codeforces-table">
                         <ul className="heading">
                             <li>Username</li>
-                            <li>OldRating</li>
+                            <li className="oldrating">OldRating</li>
                             <li>NewRating</li>
                             <li>Rank</li>
                         </ul>
@@ -43,7 +54,7 @@ export const LeetCode = () => {
                                 </ul>) :
                                 <ul key={index} className="tablecontent">
                                     <li>{currUser.username}</li>
-                                    <li>{parseInt(currUser.old_rating).toFixed(2)}</li>
+                                    <li className="oldrating">{parseInt(currUser.old_rating).toFixed(2)}</li>
                                     <li>{parseInt(currUser.new_rating).toFixed(2)}</li>
                                     <li>{currUser.rank}</li>
                                 </ul>

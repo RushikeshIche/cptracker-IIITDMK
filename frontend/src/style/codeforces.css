@@ -3,13 +3,12 @@
     margin-top: 50px;
     display: grid;
     justify-content: center;
-    gap: 20px;
 }
 
 .codeforces-table .heading{
-    display: flex;
+    display: grid;
+    grid-template-columns: 140px 120px 120px 120px;
     list-style: none;
-    gap: 30px;
     background-color: #7728f6;
 }
 .codeforces-table .heading li{
@@ -18,7 +17,7 @@
 }
 .tablecontent{
     display: grid;
-    grid-template-columns: 120px 120px 120px 120px;
+    grid-template-columns: 140px 120px 120px 120px;
     list-style: none;
     background-color: #272139;
     align-items: center;
@@ -33,4 +32,21 @@
 }
 .codeforces b{
     color: #7728f6;
+}
+
+@media screen and (max-width: 550px) {
+    .codeforces{
+        font-size: 20px;
+    }
+    .tablecontent,.codeforces-table .heading{
+        grid-template-columns: 135px 87px 87px 70px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .tablecontent,.codeforces-table .heading{
+        grid-template-columns: 135px 87px 70px;
+    }
+    .oldrating{
+        display: none;
+    }
 }

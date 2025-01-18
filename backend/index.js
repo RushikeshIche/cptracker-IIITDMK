@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require("mongoose")
 require('dotenv').config();
 
+app.use(express.json())
 app.use(cors());
 const connectMongo = async () => {
     try {
@@ -16,13 +17,17 @@ const connectMongo = async () => {
 }
 const codeChefScraping = require('./routes/codechef.js')
 const codeforces = require('./routes/codeforces.js')
-const user = require('./routes/username.js')
+const cfuser = require('./routes/cfuser.js')
+const lcuser = require('./routes/lcuser.js')
 const leetcode = require('./routes/leetcode.js')
+const currentcontest = require("./routes/contestName.js")
 
 app.use('/codechef', codeChefScraping);
 app.use('/codeforces',codeforces);
-app.use('/user', user);
+app.use('/cfuser', cfuser);
+app.use('/lcuser',lcuser)
 app.use('/leetcode', leetcode);
+app.use('/currentcontest', currentcontest);
 
 app.listen(port, () => {
     connectMongo();

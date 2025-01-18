@@ -3,9 +3,21 @@ const router = express.Router()
 const axios = require("axios")
 const LeetCodeData = require('../models/leetcodedata');
 const leetcodedata = require("../models/leetcodedata");
+const LCuserSchema = require("../models/leetCodeUser")
+const ContestSchema = require("../models/currentContest")
 
-const usernames = ["mohammedarshad_30","AspiringKarmokar","jaydip1235","endlesscheng","arignote"];
-const contestName  = "weekly-contest-431";
+const getUsername = async () => {
+    const username = await LCuserSchema.find();
+    const usernames = username.map((currUser) => {
+        return currUser.username
+    })
+    return usernames;
+}
+
+const getContestName = async () => {
+    const data = await ContestSchema.find();
+    return data[0].leetcode
+}
 
 const makeEmptytemp = (username) => {
     const template = [{
@@ -17,6 +29,7 @@ const makeEmptytemp = (username) => {
 }
 
 const fetchUser = async (username) => {
+    const contestName = await getContestName();
     try {
         const res = await axios.get(`https://lccn.lbao.site/api/v1/contest-records/user?contest_name=${contestName}&username=${username}&archived=false`)
         let data = (res.data);
@@ -29,9 +42,10 @@ const fetchUser = async (username) => {
     }
 }
 
-const delay = (ms) => Promise((resolve) => setTimeout(resolve,ms))
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve,ms))
 const fetchAllData = async (packetSize=5,ms=2000) => {
     const AllData = [];
+    const usernames = await getUsername();
     for (let i=0;i<usernames.length;i+=packetSize){
         let packet = usernames.slice(i,i+packetSize)
         const promise = packet.map((currUser) => {
