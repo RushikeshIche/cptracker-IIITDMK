@@ -9,6 +9,7 @@ import './App.css'
 import './index.css'
 import { ErrorPage } from "./pages/error"
 import { NotFound } from "./pages/NotFound"
+import {OurTeam} from "./pages/ourteam"
 
 const App = () => {
   const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const App = () => {
         {
           path: '/leetcode',
           element: <LeetCode/>
+        },
+        {
+          path: '/ourteam',
+          element: <OurTeam/>
         },
         {
           path: '/notfound',
