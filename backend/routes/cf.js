@@ -69,8 +69,11 @@ router.post('/add', async (req,res) => {
     try {
         const data = await fecthAllData();
         const updatedData = data.map((currData,index) => {
-            if (currData.contestName===Current_Contest) currData.check=true
-            else currData.check=false
+            if (currData.code.slice(0,8)===Current_Contest) currData.check=true
+            else{
+                currData.check=false
+                currData.rank = 999999
+            }
             return currData
         })
         await CfSchema.deleteMany({});
