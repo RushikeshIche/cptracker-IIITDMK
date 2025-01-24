@@ -6,6 +6,7 @@ const CfSchema = new mongoose.Schema({
     rating: {type: String, required: true},
     rollno: {type: String, required: true},
     rank: {type: String, required: true},
+    check: {type: Boolean},
 })
 
 module.exports = mongoose.model("CfData", CfSchema)

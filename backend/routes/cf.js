@@ -1,19 +1,19 @@
 const { default: axios } = require('axios');
 const express = require('express')
 const CfSchema = require("../models/cf");
-const CFusername = require("../models/codeForcesUser")
+const CCusername = require("../models/codeChefUser")
 const ContestSchema = require("../models/currentContest")
 
 const router = express.Router();
-// const getUsername = async () => {
-//     const username = await CFusername.find();
-//     return username;
-// }
+const getUsername = async () => {
+    const username = await CCusername.find();
+    return username;
+}
 
-// const getContestName = async () => {
-//     const data = await ContestSchema.find();
-//     return data[0].codeforces
-// }
+const getContestName = async () => {
+    const data = await ContestSchema.find();
+    return data[0].codechef
+}
 
 const AddData = async (userdata) => {
     try {
@@ -40,8 +40,8 @@ const getData = async ({username,rollno}) => {
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const fecthAllData = async (packetSize=5, delayMs=2000) => {
-    // const usernames = await getUsername()
-    const usernames = [{username: "yoke_snow_87", rollno: "123cs0009"},{username: "rohan1875", rollno: "123cd0003"},{username: "hydr0_7", rollno: "123cs0022"},{username: "yvmr33", rollno: "122cs0022"}]
+    const usernames = await getUsername()
+    // const usernames = [{username: "yoke_snow_87", rollno: "123cs0009"},{username: "rohan1875", rollno: "123cd0003"},{username: "hydr0_7", rollno: "123cs0022"},{username: "yvmr33", rollno: "122cs0022"}]
     const allData = [];
     for (let i=0;i<usernames.length;i+=packetSize){
         const packet = usernames.slice(i,i+packetSize)
@@ -65,12 +65,12 @@ const fecthAllData = async (packetSize=5, delayMs=2000) => {
 }
 
 router.post('/add', async (req,res) => {
-    // const Current_Contest = await getContestName();
+    const Current_Contest = await getContestName();
     try {
         const data = await fecthAllData();
         const updatedData = data.map((currData,index) => {
-            // if (currData.contestName===Current_Contest) currData.check=true
-            // else currData.check=false
+            if (currData.contestName===Current_Contest) currData.check=true
+            else currData.check=false
             return currData
         })
         await CfSchema.deleteMany({});
