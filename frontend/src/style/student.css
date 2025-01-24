@@ -5,8 +5,9 @@
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 20px;
-    font-weight: 700;
+    
     text-align: center;   
+    background: white;
   }
   .anchor:hover{
     background-color: #ED4700;
