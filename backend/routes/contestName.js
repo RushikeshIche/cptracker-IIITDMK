@@ -3,10 +3,11 @@ const router = express.Router();
 const ContestSchema = require("../models/currentContest")
 
 router.post('/add', async (req,res) => {
-    const {codeforces, leetcode} = req.body;
+    const {codeforces, leetcode, codechef} = req.body;
     const contestname = {
         codeforces,
-        leetcode
+        leetcode,
+        codechef
     }
     try {
         await ContestSchema.deleteMany({});

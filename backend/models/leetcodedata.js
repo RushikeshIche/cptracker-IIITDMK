@@ -7,6 +7,7 @@ const LeetCodeSchema = new mongoose.Schema({
     new_rating: {type: String},
     old_rating: {type: String},
     rank: {type: String, required: true},
+    rollno: {type: String, required: true},
 })
 
 module.exports = mongoose.model("LeetCodeData", LeetCodeSchema)

@@ -8,10 +8,10 @@ const ContestSchema = require("../models/currentContest")
 
 const getUsername = async () => {
     const username = await LCuserSchema.find();
-    const usernames = username.map((currUser) => {
-        return currUser.username
-    })
-    return usernames;
+    // const usernames = username.map((currUser) => {
+    //     return currUser.username
+    // })
+    return username;
 }
 
 const getContestName = async () => {
@@ -23,12 +23,12 @@ const makeEmptytemp = (username) => {
     const template = [{
         contest_id: "none",
         username: username,
-        rank: "999999999",
+        rank: "999999999"
     }]
     return template
 }
 
-const fetchUser = async (username) => {
+const fetchUser = async ({username,rollno}) => {
     const contestName = await getContestName();
     try {
         const res = await axios.get(`https://lccn.lbao.site/api/v1/contest-records/user?contest_name=${contestName}&username=${username}&archived=false`)
@@ -36,6 +36,11 @@ const fetchUser = async (username) => {
         if (res.data.length == 0){
             data = makeEmptytemp(username)
         }
+
+
+        data[0].rollno = rollno
+
+
         return data[0];
     } catch (error) {
         console.error(`can't fetch data with username ${username}`, error)

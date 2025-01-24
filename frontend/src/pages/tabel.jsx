@@ -1,8 +1,8 @@
 import '../style/home.css'
 
 export const Table = ({contestData}) => {
-    console.log(contestData)
-    const HeadingArray = ["Rank", "Star", "Username","Score","LastAc", "p1","p2","p3","p4"];
+    // const HeadingArray = ["Rank", "Star", "Username","Score","LastAc", "p1","p2","p3","p4"]; //old
+    const HeadingArray = ["rollno", "username", "rating","rank"];
     return (
         <>
             <div className="table-container">

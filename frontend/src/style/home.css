@@ -26,13 +26,13 @@
     margin-top: 50px;
     display: grid;
     justify-content: center;
-    gap: 20px;
 }
 .table-heading{
     background-color: #7728f6;
     color: white;
     display: grid;
-    grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px;
+    /* grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px; */
+    grid-template-columns: 100px 100px 70px 70px;
     height: 40px;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +41,6 @@
 .table-data{
     display: flex;
     flex-direction: column;
-    gap: 20px;
     justify-content: center;
     align-items: center;
     color: white;
@@ -49,7 +48,8 @@
 .table-data .list-items{
     background-color: #272139;
     display: grid;
-    grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px;
+    /* grid-template-columns: 70px 50px 150px 70px 70px 70px 70px 70px 70px; */
+    grid-template-columns: 100px 100px 70px 70px;
     height: 60px;
     align-items: center;
 }
