@@ -70,7 +70,10 @@ router.post('/add', async (req,res) => {
         const data = await fecthAllData();
         const updatedData = data.map((currData,index) => {
             if (currData.contestName===Current_Contest) currData.check=true
-            else currData.check=false
+            else{
+                currData.check=false
+                currData.rank = 99999
+            }
             return currData
         })
         console.log(updatedData);
