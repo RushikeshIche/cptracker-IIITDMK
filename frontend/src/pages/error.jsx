@@ -4,7 +4,6 @@ import '../style/Error.css'
 export const ErrorPage = () => {
     const navigate = useNavigate()
     const handleGoBack = () => {
-        console.log("go back")
         navigate('/')
     }
     return (

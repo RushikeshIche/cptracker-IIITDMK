@@ -5,7 +5,7 @@ export const Header = () => {
     return (
         <>
             <div className="w-full self-start title flex items-center p-3">
-                <img src="src/assets/png college logo.png" alt="college logo" className="ml-3 college_logo" />
+                <img src="/logo.png" alt="college logo" className="ml-3 college_logo" />
                 <div className="college_name font-bold mx-auto" >
                     Indian Institute of Information Technology Design & Manufacturing, Kurnool
                 </div>

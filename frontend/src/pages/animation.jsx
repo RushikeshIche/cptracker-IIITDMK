@@ -46,7 +46,7 @@ export const Animation = () => {
         <img
           ref={logoRef}
           className="logo w-1/4"
-          src="src/assets/png college logo.png"
+          src="/logo.png"
           alt="College Logo"
         />
       </h1>
