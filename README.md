@@ -1,6 +1,6 @@
 # CPTracker
 
-CPTracker is a web-based application developed to help students of [Your Institute Name] track their performance across various competitive programming platforms, including CodeChef, LeetCode, and CodeForces. Students can view their contest performance and stay motivated by seeing their progress.
+CPTracker is a web-based application developed to help students track their performance across various competitive programming platforms, including CodeChef, LeetCode, and CodeForces. Students can view their contest performance and stay motivated by seeing their progress.
 
 ## Features
 
