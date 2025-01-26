@@ -22,3 +22,11 @@ Follow these steps to run CPTracker locally:
    ```bash
    git clone https://github.com/your-username/cptracker.git
    cd cptracker
+2. Install dependencies: For frontend:
+   ```bash
+   cd frontend
+   npm install
+3. Start the frontend server:
+  ```bash
+  npm run dev
+
